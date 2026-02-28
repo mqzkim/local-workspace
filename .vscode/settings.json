@@ -1,0 +1,129 @@
+{
+  // TypeScript 설정
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.variableTypes.enabled": false,
+
+  // ESLint 설정
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.codeActionsOnSave.mode": "problems",
+
+  // Prettier 설정
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.requireConfig": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+
+  // JSX/TSX Emmet 지원
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+
+  // Tailwind CSS 설정
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+
+  // 파일 연결 설정
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.env.*": "dotenv"
+  },
+
+  // 자동 저장
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+
+  // 검색 설정
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.next": true,
+    "**/coverage": true,
+    "**/.nyc_output": true,
+    "**/logs": true,
+    "**/.turbo": true
+  },
+
+  // 파일 탐색기 설정
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js,${capture}.d.ts.map,${capture}.d.ts,${capture}.js.map",
+    "*.tsx": "${capture}.js,${capture}.d.ts.map,${capture}.d.ts,${capture}.js.map",
+    "package.json": "package-lock.json,yarn.lock,pnpm-lock.yaml",
+    ".env": ".env.*",
+    "README.md": "README.*",
+    "tsconfig.json": "tsconfig.*.json",
+    "tailwind.config.*": "postcss.config.*",
+    "next.config.*": "next-env.d.ts"
+  },
+
+  // Git 설정
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+
+  // 터미널 설정
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.fontSize": 14,
+
+  // 편집기 설정
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.rulers": [80, 120],
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 120,
+
+  // 미니맵 비활성화
+  "editor.minimap.enabled": false,
+
+  // 브래드크럼
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.showFiles": false,
+
+  // 문제 패널
+  "problems.autoReveal": false,
+
+  // 확장 프로그램별 설정
+  "gitlens.showWelcomeOnInstall": false,
+  "gitlens.showWhatsNewAfterUpgrades": false,
+
+  // 텔레메트리 비활성화
+  "telemetry.telemetryLevel": "off",
+
+  // 언어별 설정
+  "[prisma]": {
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true
+  }
+}

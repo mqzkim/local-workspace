@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(/C:\\workspace\\.claude\\output-styles/**)",
+      "Bash(wsl:*)",
+      "Bash(where docker)",
+      "Bash(echo $HOME)",
+      "Bash(ls:*)",
+      "Bash(echo $SHELL)",
+      "Bash(source:*)",
+      "Bash(find:*)",
+      "Bash(npm:*)",
+      "Bash(node:*)",
+      "Bash(npx prisma:*)",
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(nslookup:*)",
+      "Bash(timeout 10 telnet:*)",
+      "Bash(nc:*)",
+      "Bash(ip addr:*)",
+      "Read(//etc/**)",
+      "Bash(env)",
+      "Read(//proc/**)",
+      "Bash(timeout:*)",
+      "Bash(ip route:*)",
+      "Bash(iptables:*)",
+      "Bash(ping:*)",
+      "Read(///**)",
+      "Bash(sudo:*)",
+      "Bash(powershell.exe:*)",
+      "Bash(pwsh.exe:*)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "outputStyle": "korean-concise"
+}
