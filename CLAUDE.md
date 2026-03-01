@@ -15,6 +15,17 @@
 
 ---
 
+## ⚠️ 최우선 규칙: Skill-First (강제)
+
+> **모든 작업 요청은 반드시 Skill을 통해 실행한다. 예외 없음.**
+> 상세 규칙: `.claude/rules/skill-first.md`
+
+1. 기존 Skill 매칭 → 있으면 즉시 Skill 호출
+2. 없으면 → Team Agent로 새 Skill 생성 → 생성된 Skill로 작업 수행
+3. **Skill 없이 직접 코드 작성/수정 절대 금지**
+
+---
+
 ## 핵심 워크플로우: 탐색 → 계획 → 합의 → 실행 → 회고
 
 모든 비자명 작업은 아래 5단계를 따른다. **계획 없는 실행 금지**.
@@ -94,9 +105,32 @@
 | llms-maintainer | LLMs.txt, AI 크롤러 최적화 |
 
 ### 커스텀 커맨드 (`.claude/commands/`)
+- `kanban` — 칸반 보드 조회/관리 (`/kanban`, `/kanban list`, `/kanban add`, `/kanban start`, `/kanban done`)
 - `vercel-deploy-optimize` — Vercel 배포 최적화
 - `vercel-edge-function` — Edge Function 생성
 - `vercel-env-sync` — 환경변수 동기화
+
+---
+
+## 칸반 기반 작업 관리
+
+모든 작업은 **GitHub Projects 칸반 보드**를 통해 추적한다.
+
+- **보드:** [Workspace Kanban](https://github.com/users/mqzkim/projects/1)
+- **레포:** `mqzkim/local-workspace`
+- **CLI:** `/kanban` 커맨드 또는 `gh project` 명령어
+- **대시보드:** `bash scripts/kanban-status.sh`
+
+### 작업 프로세스
+1. 이슈 생성 → 보드 Backlog/Todo에 배치
+2. 작업 시작 → `/kanban start #N` → 브랜치 생성 + In Progress
+3. 작업 완료 → `/kanban done #N` → PR 생성 (Closes #N)
+4. PR 머지 → 이슈 자동 닫힘 → Done
+
+### 라벨 체계
+- **프로젝트:** `project:agentops`, `project:shipkit`, `project:unity-game`, `project:infra`
+- **우선순위:** `priority:critical/high/medium/low`
+- **유형:** `type:feature/bugfix/chore/docs/refactor/test`
 
 ---
 

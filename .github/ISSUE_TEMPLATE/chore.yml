@@ -1,0 +1,33 @@
+name: Chore / Task
+description: 설정, 리팩토링, 유지보수 작업
+labels: ["type:chore"]
+body:
+  - type: dropdown
+    id: project
+    attributes:
+      label: Project
+      options:
+        - agentops
+        - shipkit
+        - unity-game
+        - infra
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - critical
+        - high
+        - medium
+        - low
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Task Description
+      description: 작업 내용
+    validations:
+      required: true
