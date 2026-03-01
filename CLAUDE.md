@@ -117,15 +117,20 @@
 모든 작업은 **GitHub Projects 칸반 보드**를 통해 추적한다.
 
 - **보드:** [Workspace Kanban](https://github.com/users/mqzkim/projects/1)
-- **레포:** `mqzkim/local-workspace`
 - **CLI:** `/kanban` 커맨드 또는 `gh project` 명령어
 - **대시보드:** `bash scripts/kanban-status.sh`
 
-### 작업 프로세스
-1. 이슈 생성 → 보드 Backlog/Todo에 배치
-2. 작업 시작 → `/kanban start #N` → 브랜치 생성 + In Progress
-3. 작업 완료 → `/kanban done #N` → PR 생성 (Closes #N)
-4. PR 머지 → 이슈 자동 닫힘 → Done
+### 작업 프로세스 (보드 자동 연동)
+1. 이슈 생성 → 보드 Backlog에 자동 배치 (GitHub Actions)
+2. **작업 시작** → `/kanban start #N` → 브랜치 생성 + 보드 **In Progress** 자동 이동
+3. **작업 완료** → `/kanban done #N` → PR 생성 + 보드 **In Review** 자동 이동
+4. **PR 머지** → 보드 **Done** 자동 이동 (GitHub Actions) + 이슈 자동 닫힘
+
+### 개발 규칙
+- 이슈 번호가 있는 작업 시작 시 **반드시 `/kanban start #N`** 사용
+- 이슈 없이 작업하지 않음 — 먼저 `/kanban add`로 이슈 생성
+- PR 생성 시 **반드시 `/kanban done #N`** 사용
+- 커밋은 수동으로 완료한 후 `/kanban done` 실행
 
 ### 라벨 체계
 - **프로젝트:** `project:agentops`, `project:shipkit`, `project:unity-game`, `project:infra`
