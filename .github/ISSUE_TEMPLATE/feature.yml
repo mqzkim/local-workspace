@@ -1,0 +1,40 @@
+name: Feature Request
+description: 새 기능 요청
+labels: ["type:feature"]
+body:
+  - type: dropdown
+    id: project
+    attributes:
+      label: Project
+      options:
+        - agentops
+        - shipkit
+        - unity-game
+        - infra
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - critical
+        - high
+        - medium
+        - low
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: 구현할 기능 설명
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: 완료 기준
+      value: |
+        - [ ]

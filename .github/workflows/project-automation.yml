@@ -1,0 +1,31 @@
+name: Project Kanban Automation
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened, closed]
+
+jobs:
+  add-to-project:
+    name: Add to Kanban Board
+    if: github.event_name == 'issues'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: https://github.com/users/mqzkim/projects/1
+          github-token: ${{ secrets.PROJECT_TOKEN }}
+
+  auto-move-on-pr-merge:
+    name: Log PR merge for auto-close
+    if: >
+      github.event_name == 'pull_request' &&
+      github.event.action == 'closed' &&
+      github.event.pull_request.merged
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log merged PR
+        run: |
+          echo "PR #${{ github.event.pull_request.number }} merged"
+          echo "Linked issues will auto-close via GitHub 'Closes #N' convention"

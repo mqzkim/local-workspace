@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: General Discussion
+    url: https://github.com/mqzkim/local-workspace/discussions
+    about: 일반 논의는 Discussions에서
