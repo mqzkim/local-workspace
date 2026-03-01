@@ -6,9 +6,15 @@ on:
   pull_request:
     types: [opened, closed]
 
+env:
+  PROJECT_ID: PVT_kwHOAJ7Yb84BQfi9
+  STATUS_FIELD_ID: PVTSSF_lAHOAJ7Yb84BQfi9zg-mHx4
+  STATUS_IN_REVIEW: 572d115c
+  STATUS_DONE: 1cad29c3
+
 jobs:
   add-to-project:
-    name: Add to Kanban Board
+    name: Add new issue to Kanban Board
     if: github.event_name == 'issues'
     runs-on: ubuntu-latest
     steps:
@@ -17,15 +23,47 @@ jobs:
           project-url: https://github.com/users/mqzkim/projects/1
           github-token: ${{ secrets.PROJECT_TOKEN }}
 
-  auto-move-on-pr-merge:
-    name: Log PR merge for auto-close
+  move-to-in-review:
+    name: Move linked issue to In Review
+    if: github.event_name == 'pull_request' && github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract & move issues
+        env:
+          GH_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+        run: |
+          BODY="${{ github.event.pull_request.body }}"
+          ISSUES=$(echo "$BODY" | grep -oiP '(closes?|fixes?|resolves?)\s+#\K\d+' || true)
+          for NUM in $ISSUES; do
+            ITEM_ID=$(gh project item-list 1 --owner mqzkim --format json --limit 500 | \
+              jq -r ".items[] | select(.content.number == $NUM) | .id")
+            if [ -n "$ITEM_ID" ] && [ "$ITEM_ID" != "null" ]; then
+              gh project item-edit --project-id $PROJECT_ID --id "$ITEM_ID" \
+                --field-id $STATUS_FIELD_ID --single-select-option-id $STATUS_IN_REVIEW
+              echo "Issue #$NUM -> In Review"
+            fi
+          done
+
+  move-to-done:
+    name: Move linked issue to Done on merge
     if: >
       github.event_name == 'pull_request' &&
       github.event.action == 'closed' &&
       github.event.pull_request.merged
     runs-on: ubuntu-latest
     steps:
-      - name: Log merged PR
+      - name: Extract & move issues
+        env:
+          GH_TOKEN: ${{ secrets.PROJECT_TOKEN }}
         run: |
-          echo "PR #${{ github.event.pull_request.number }} merged"
-          echo "Linked issues will auto-close via GitHub 'Closes #N' convention"
+          BODY="${{ github.event.pull_request.body }}"
+          ISSUES=$(echo "$BODY" | grep -oiP '(closes?|fixes?|resolves?)\s+#\K\d+' || true)
+          for NUM in $ISSUES; do
+            ITEM_ID=$(gh project item-list 1 --owner mqzkim --format json --limit 500 | \
+              jq -r ".items[] | select(.content.number == $NUM) | .id")
+            if [ -n "$ITEM_ID" ] && [ "$ITEM_ID" != "null" ]; then
+              gh project item-edit --project-id $PROJECT_ID --id "$ITEM_ID" \
+                --field-id $STATUS_FIELD_ID --single-select-option-id $STATUS_DONE
+              echo "Issue #$NUM -> Done"
+            fi
+          done
