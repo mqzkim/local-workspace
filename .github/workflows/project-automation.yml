@@ -31,9 +31,9 @@ jobs:
       - name: Extract & move issues
         env:
           GH_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          BODY="${{ github.event.pull_request.body }}"
-          ISSUES=$(echo "$BODY" | grep -oiP '(closes?|fixes?|resolves?)\s+#\K\d+' || true)
+          ISSUES=$(echo "$PR_BODY" | grep -oiP '(closes?|fixes?|resolves?)\s+#\K\d+' || true)
           for NUM in $ISSUES; do
             ITEM_ID=$(gh project item-list 1 --owner mqzkim --format json --limit 500 | \
               jq -r ".items[] | select(.content.number == $NUM) | .id")
@@ -55,9 +55,9 @@ jobs:
       - name: Extract & move issues
         env:
           GH_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          BODY="${{ github.event.pull_request.body }}"
-          ISSUES=$(echo "$BODY" | grep -oiP '(closes?|fixes?|resolves?)\s+#\K\d+' || true)
+          ISSUES=$(echo "$PR_BODY" | grep -oiP '(closes?|fixes?|resolves?)\s+#\K\d+' || true)
           for NUM in $ISSUES; do
             ITEM_ID=$(gh project item-list 1 --owner mqzkim --format json --limit 500 | \
               jq -r ".items[] | select(.content.number == $NUM) | .id")
