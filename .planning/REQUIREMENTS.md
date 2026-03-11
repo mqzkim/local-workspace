@@ -1,6 +1,6 @@
 # Requirements: Intrinsic Alpha Trader v1
 
-> Generated: 2026-03-12 | Status: Approved | Total: 31 requirements
+> Generated: 2026-03-12 | Status: Approved | Total: 32 requirements
 
 ## Category 1: Data Ingestion (DATA)
 
@@ -64,14 +64,45 @@
 
 - **Explainability**: 모든 스코어/시그널/추천은 데이터 포인트까지 역추적 가능
 - **Point-in-Time**: 재무 데이터는 filing date 기준 (look-ahead bias 방지)
-- **Audit Trail**: 모든 의사결정 과정 로깅 (scoring → signal → trade plan → execution)
+- **Audit Trail**: 모든 의사결정 과정 로깅 (scoring -> signal -> trade plan -> execution)
 - **DDD Compliance**: 워크스페이스 DDD 규칙 준수 (도메인 순수성, 레이어 의존성, 이벤트 통신)
 
 ## Traceability Matrix
 
-| Phase | Requirements |
-|-------|-------------|
-| TBD | 로드맵 생성 시 매핑 |
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| DATA-01 | Phase 1: Data Foundation | Pending |
+| DATA-02 | Phase 1: Data Foundation | Pending |
+| DATA-03 | Phase 1: Data Foundation | Pending |
+| DATA-04 | Phase 1: Data Foundation | Pending |
+| SCOR-01 | Phase 1: Data Foundation | Pending |
+| SCOR-02 | Phase 1: Data Foundation | Pending |
+| SCOR-03 | Phase 1: Data Foundation | Pending |
+| SCOR-04 | Phase 1: Data Foundation | Pending |
+| SCOR-05 | Phase 2: Analysis Core | Pending |
+| SCOR-06 | Phase 2: Analysis Core | Pending |
+| VALU-01 | Phase 2: Analysis Core | Pending |
+| VALU-02 | Phase 2: Analysis Core | Pending |
+| VALU-03 | Phase 2: Analysis Core | Pending |
+| VALU-04 | Phase 2: Analysis Core | Pending |
+| VALU-05 | Phase 2: Analysis Core | Pending |
+| SIGN-01 | Phase 3: Decision Engine | Pending |
+| SIGN-02 | Phase 3: Decision Engine | Pending |
+| RISK-01 | Phase 3: Decision Engine | Pending |
+| RISK-02 | Phase 3: Decision Engine | Pending |
+| RISK-03 | Phase 3: Decision Engine | Pending |
+| RISK-04 | Phase 3: Decision Engine | Pending |
+| RISK-05 | Phase 3: Decision Engine | Pending |
+| BACK-01 | Phase 3: Decision Engine | Pending |
+| BACK-02 | Phase 3: Decision Engine | Pending |
+| EXEC-01 | Phase 4: Execution and Interface | Pending |
+| EXEC-02 | Phase 4: Execution and Interface | Pending |
+| EXEC-03 | Phase 4: Execution and Interface | Pending |
+| EXEC-04 | Phase 4: Execution and Interface | Pending |
+| INTF-01 | Phase 4: Execution and Interface | Pending |
+| INTF-02 | Phase 4: Execution and Interface | Pending |
+| INTF-03 | Phase 4: Execution and Interface | Pending |
+| INTF-04 | Phase 4: Execution and Interface | Pending |
 
 ---
 *Approved: 2026-03-12*
