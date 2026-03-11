@@ -23,6 +23,9 @@ coverage/
 # Vercel
 .vercel/
 
+# Firecrawl
+.firecrawl/
+
 # Logs
 *.log
 npm-debug.log*
@@ -47,3 +50,4 @@ __pycache__/
 .venv/
 venv/
 *.egg-info/
+.vercel
