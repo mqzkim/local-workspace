@@ -1,0 +1,37 @@
+{
+  "hubVersion": "1.0.0",
+  "repos": [
+    {
+      "alias": "workspace",
+      "path": "C:/workspace",
+      "isRoot": true
+    },
+    {
+      "alias": "claude-workspace",
+      "path": "C:/workspace/claude-workspace",
+      "isRoot": false
+    },
+    {
+      "alias": "unity-game",
+      "path": "C:/workspace/unity-game",
+      "isRoot": false
+    },
+    {
+      "alias": "trading",
+      "path": "C:/workspace/trading",
+      "isRoot": false
+    }
+  ],
+  "syncPolicy": {
+    "conflictResolution": "origin",
+    "autoSyncOnSessionStart": true,
+    "autoScanOnChange": true
+  },
+  "sharedDefaults": {
+    "agents": true,
+    "commands": true,
+    "output-styles": true,
+    "skills": true,
+    "rules": true
+  }
+}

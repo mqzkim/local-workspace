@@ -43,6 +43,47 @@ nul
 *.swo
 .idea/
 
+# Claude worktrees
+.claude/worktrees/
+
+# Obsidian vault (separate sync)
+vault/
+
+# GitHub Actions runner
+actions-runner/
+
+# AI tool configs (disposable)
+.adal/
+.agent/
+.agents/
+.augment/
+.codebuddy/
+.codex/
+.commandcode/
+.continue/
+.cortex/
+.crush/
+.factory/
+.goose/
+.iflow/
+.junie/
+.kilocode/
+.kiro/
+.kode/
+.mcpjam/
+.mux/
+.neovate/
+.openhands/
+.pi/
+.pochi/
+.qoder/
+.qwen/
+.roo/
+.trae/
+.vibe/
+.windsurf/
+.zencoder/
+
 # Python
 __pycache__/
 *.py[cod]

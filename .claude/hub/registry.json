@@ -1,0 +1,2717 @@
+{
+  "$schema": "claude-hub-registry-v1",
+  "version": "1.0.0",
+  "lastUpdated": "2026-03-11T22:01:25.186Z",
+  "repos": {
+    "workspace": {
+      "path": "C:/workspace",
+      "alias": "workspace",
+      "lastScanned": "2026-03-11T22:01:24.867Z"
+    },
+    "claude-workspace": {
+      "path": "C:/workspace/claude-workspace",
+      "alias": "claude-workspace",
+      "lastScanned": "2026-03-11T22:01:24.955Z"
+    },
+    "unity-game": {
+      "path": "C:/workspace/unity-game",
+      "alias": "unity-game",
+      "lastScanned": "2026-03-11T22:01:25.030Z"
+    },
+    "test-repo": {
+      "path": "C:/Users/USER/AppData/Local/Temp/test-claude-repo",
+      "alias": "test-repo",
+      "lastScanned": "2026-03-01T16:36:22.289Z"
+    },
+    "trading": {
+      "path": "C:/workspace/trading",
+      "alias": "trading",
+      "lastScanned": "2026-03-11T22:01:25.111Z"
+    }
+  },
+  "assets": {
+    "skills": {
+      "agent-debugger": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "e2d51b98b762e816c90f8cfb787c31c9138f30d720ac9f7b73c738d69565da60",
+            "size": 7951
+          }
+        },
+        "metadata": {
+          "name": "agent-debugger",
+          "description": "에이전트 세션 디버깅, 실행 흐름 시각화, 세션 리플레이, 자기 수정 루프 감지, 멀티에이전트 토폴로지. Agent 1-12.",
+          "argument-hint": "[session_id] [--replay] [--topology] [--detect-loops] [--compare session1,session2] [--export]",
+          "allowed-tools": "Read, Glob, Grep, Bash, Write, Edit, WebSearch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "alert": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "35aebe623e45a32f261ccf3dd28f5df2ffcaab0015ad5a10ed2656ae69803b3d",
+            "size": 740
+          }
+        },
+        "metadata": {
+          "name": "alert",
+          "description": "모든 에이전트의 이상 이벤트를 통합하여 Slack/이메일/SMS로 알림. 심각도 분류, 중복 억제, 에스컬레이션 관리. Agent 4-3.",
+          "argument-hint": "[이벤트 메시지]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "api-designer": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "7a4ce3bd7b706691531c6408fdc533db6470766e11a3cd48cfc85791fa4a8816",
+            "size": 6765
+          }
+        },
+        "metadata": {
+          "name": "api-designer",
+          "description": "tRPC/REST API 엔드포인트 설계 및 구현. Zod 스키마, 인증, Rate Limiting 포함. Agent 1-8.",
+          "argument-hint": "[리소스명] [--type trpc|rest|both] [--operations list,get,create,update,delete] [--auth api-key|session|both] [--rate-limit]",
+          "allowed-tools": "Read, Glob, Grep, Bash, Write, Edit, WebSearch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "change-detector": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "9c98a5ef022b01179d2ab4e52de6c4798610245376b57c18ed83a09fc96424ce",
+            "size": 803
+          }
+        },
+        "metadata": {
+          "name": "change-detector",
+          "description": "웹사이트·API·데이터 소스의 변경을 감지하고 알림. IDEA 3 디렉토리 자동 업데이트와 IDEA 6-E 가격 변동 추적의 핵심. Agent 2-3.",
+          "argument-hint": "[URL 또는 모니터링 설정 파일]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "churn-prevention": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "0a845d70e74744f01c707cd565ed85b71d237b3c4e3ad9a20c8e225007d8535c",
+            "size": 841
+          }
+        },
+        "metadata": {
+          "name": "churn-prevention",
+          "description": "이탈 가능성 높은 유료 고객을 사전 감지하고 리텐션 전략 실행. 사용량 감소, 결제 실패 추적, 이탈 위험 점수 산출. Agent 5-4.",
+          "argument-hint": "[제품명]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "cloudflare": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "d402f9f3e417e2b35fee6b8726e74f1582576840505ecd0d4551817599170401",
+            "size": 6657
+          }
+        },
+        "metadata": {
+          "name": "cloudflare",
+          "description": "Playwright로 Cloudflare 대시보드를 자동 조작. 도메인 구매, DNS 레코드 설정, 도메인 관리를 브라우저 자동화로 수행. Agent 4-7.",
+          "argument-hint": "[buy|dns|verify] [도메인명] [--dns-records A:@:76.76.21.21,CNAME:demo:cname.vercel-dns.com]",
+          "allowed-tools": "Read, Bash, Glob, Grep, Write, Edit, WebFetch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "code-review": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "6780043550b25bf29452c74257c2249e12f503f01d8c46b74d418e2842504178",
+            "size": 2563
+          },
+          "spec.md": {
+            "sha256": "a7e55bd7a91e82e79952886d82c378c0efbfa290d80a3b41b89acfbef97fa302",
+            "size": 44440
+          }
+        },
+        "metadata": {
+          "name": "code-review",
+          "description": "30년 시니어 아키텍트 수준의 심층 코드 리뷰 수행. PR diff, 파일, 전체 프로젝트 대상. OWASP Top 10 보안 검사, 성능 병목 탐지, 아키텍처 안티패턴 경고 포함. Agent 1-3.",
+          "argument-hint": "[PR URL 또는 파일 경로]",
+          "allowed-tools": "Read, Grep, Glob, Bash, Agent"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "compliance-reporter": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "88db963adb2bcab25d89cde35dd639c23f56058a5a5c420c7be298c182cdd4fb",
+            "size": 10130
+          }
+        },
+        "metadata": {
+          "name": "compliance-reporter",
+          "description": "한국 AI 기본법 규정준수 리포트 자동 생성. 위험도 분류, 투명성 체크리스트, HITL 감사 추적, 과기정통부 신고서 템플릿. Agent 6-1.",
+          "argument-hint": "[시스템명|project_id] [--classify] [--report pdf|html] [--checklist] [--hitl-audit] [--notification-form] [--lang ko|en|both]",
+          "allowed-tools": "Read, Glob, Grep, Bash, Write, Edit, WebSearch, WebFetch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "content-writer": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "1a45607a86aeea7a9f00fa7ca6ce7f8eead87fddb26b8bcdcae7640f32a5016b",
+            "size": 4408
+          }
+        },
+        "metadata": {
+          "name": "content-writer",
+          "description": "기술 블로그 포스트, 뉴스레터, 튜토리얼 콘텐츠 초안을 작성. 30년 시니어 개발자 페르소나 기반. IDEA 7 콘텐츠 비즈니스의 핵심 에이전트. Agent 3-1.",
+          "argument-hint": "[주제] 또는 [주제 --type blog|newsletter|tutorial --lang ko|en]",
+          "allowed-tools": "Read, Grep, Glob, Bash, WebSearch, WebFetch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "cost-tracker": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "5880e25c7c645f6d91bace2fd8bc3a3eeb6ae99b449363a7b4fb71160d477bc3",
+            "size": 995
+          }
+        },
+        "metadata": {
+          "name": "cost-tracker",
+          "description": "인프라·API 비용을 실시간 추적하고 예산 초과 방지. Vercel/Supabase/Claude API/Stripe 비용 통합. IDEA 6-E APIPrice SaaS의 내부 버전(Dogfooding). Agent 4-4.",
+          "argument-hint": "[기간: 7d|30d|90d]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "customer-support": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "c64b19f269013af2b9f9b1ddcadd7167a53eef4205bd35882784b7caccd4fbc6",
+            "size": 998
+          }
+        },
+        "metadata": {
+          "name": "customer-support",
+          "description": "고객 문의에 대한 1차 응답 자동화. 제품별 FAQ/문서 RAG 기반. 에스컬레이션 판단 포함. Agent 5-1.",
+          "argument-hint": "[고객 메시지]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "dashboard-builder": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "27d8b3cb75355ea1004c88ee70a69226bdd73e0b676d4e796d0173771a048181",
+            "size": 6985
+          }
+        },
+        "metadata": {
+          "name": "dashboard-builder",
+          "description": "Recharts/Tremor 기반 대시보드 페이지 + 메트릭 카드 + 차트 자동 생성. Agent 1-9.",
+          "argument-hint": "[페이지명] [--metrics 'Total Traces,Total Cost,Avg Latency'] [--charts area,pie,bar,table] [--period 7d|30d|custom] [--realtime]",
+          "allowed-tools": "Read, Glob, Grep, Bash, Write, Edit, WebSearch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "data-enricher": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "c98619b37dc9fdcd64b4c4a62f7e8975b1535a0305302b6d8ff0a93a076d20c0",
+            "size": 996
+          }
+        },
+        "metadata": {
+          "name": "data-enricher",
+          "description": "기본 데이터(이름, URL)에 AI 기반으로 카테고리, 태그, 요약, 장단점을 자동 보강. IDEA 3 디렉토리 프로필 자동 작성의 핵심. Agent 2-4.",
+          "argument-hint": "[데이터 파일 또는 URL 목록]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "data-transformer": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "03ada3bd1b16303c5ee7d18111ba2bef9ab8e975f111703a78de47c786169c61",
+            "size": 908
+          }
+        },
+        "metadata": {
+          "name": "data-transformer",
+          "description": "비정형 데이터(PDF, 이미지, HTML)를 정형 데이터(JSON)로 변환. Claude Vision API 기반. IDEA 2 문서 파싱 API와 웹→마크다운 API의 핵심 엔진. Agent 2-2.",
+          "argument-hint": "[파일 경로 또는 URL] --schema [출력 스키마]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "db-architect": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "107d94c281bae1ea57e00b20b090866feea6ad48ecb5b036cbe057613221f987",
+            "size": 5796
+          }
+        },
+        "metadata": {
+          "name": "db-architect",
+          "description": "Supabase PostgreSQL 스키마 설계, 마이그레이션 생성, RLS 정책, 인덱스 최적화. Agent 1-7.",
+          "argument-hint": "[테이블명|기능명] [--migration] [--rls] [--indexes] [--seed] [--analyze 쿼리패턴]",
+          "allowed-tools": "Read, Glob, Grep, Bash, Write, Edit, WebSearch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "deployment": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "3caf70a5c25b65da3df464a8c4561ec9aa1adaa628e23d778686c0952a134492",
+            "size": 871
+          }
+        },
+        "metadata": {
+          "name": "deployment",
+          "description": "코드 변경을 안전하게 프로덕션에 배포. Vercel Preview/Production 배포, 롤백, 스모크 테스트 자동 실행. Agent 4-1.",
+          "argument-hint": "[브랜치명 또는 PR 번호]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "design-review": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "75ea0479132baac29c6d1f53a1941a9edab7adf9475bb2b0db7636a0448d3255",
+            "size": 2611
+          },
+          "spec.md": {
+            "sha256": "ccbf9e5bb7d910ff42ef67b1f2301de1b382a0da27ca4b58019a663358989648",
+            "size": 54352
+          }
+        },
+        "metadata": {
+          "name": "design-review",
+          "description": "30년 시니어 디자이너 수준의 UI/UX 심층 디자인 리뷰. 스크린샷, Figma URL, 또는 컴포넌트 코드 대상. Nielsen 10 휴리스틱 + WCAG 2.2 접근성 검사 포함.",
+          "argument-hint": "[스크린샷 경로 또는 컴포넌트 경로]",
+          "allowed-tools": "Read, Grep, Glob, Bash, Agent"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "doc-generator": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "6db4cf3086307387b84716ecdf40cbf4c81a2f7116322b96af8e6c8b65383fe3",
+            "size": 1008
+          }
+        },
+        "metadata": {
+          "name": "doc-generator",
+          "description": "코드에서 API 문서, 설치 가이드, CHANGELOG를 자동 생성. tRPC + Zod → OpenAPI 스펙 추출. IDEA 2 API 문서와 IDEA 4 MCP 서버 문서의 핵심. Agent 1-5.",
+          "argument-hint": "[소스 디렉토리 또는 파일 경로]",
+          "allowed-tools": "Read, Grep, Glob, Bash, Write"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "domain-setup": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "b22bd1fdb25c7a1f70d4a2dcd382060b54dd628cca02eca15a81b994249d80f2",
+            "size": 9503
+          }
+        },
+        "metadata": {
+          "name": "domain-setup",
+          "description": "커스텀 도메인 구매부터 Vercel/Supabase/Stripe 연결까지 전체 과정을 자동 안내 및 검증. DNS 설정, SSL, 환경변수 업데이트 일괄 처리. Agent 4-6.",
+          "argument-hint": "[도메인명] [--registrar namecheap|cloudflare|vercel] [--verify]",
+          "allowed-tools": "Read, Grep, Glob, Bash, WebFetch, Write, Edit, mcp__playwright__browser_navigate, mcp__playwright__browser_click, mcp__playwright__browser_fill_form, mcp__playwright__browser_type, mcp__playwright__browser_take_screenshot, mcp__playwright__browser_snapshot, mcp__playwright__browser_wait_for, mcp__playwright__browser_press_key"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "eval-engine": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "0673995b36352e9d2633f31b4d46b0b77545d2b941f204527398c78a98158430",
+            "size": 13284
+          }
+        },
+        "metadata": {
+          "name": "eval-engine",
+          "description": "LLM 평가 파이프라인 구축. 데이터셋 관리, LLM-as-Judge 평가기, 한국어 특화 평가, A/B 비교. Agent 1-10.",
+          "argument-hint": "Sprint N 전체 구현 | [데이터셋|평가실행] [--evaluators accuracy,relevance,hallucination,harmfulness,korean] [--judge-model claude-haiku] [--compare run1,run2]",
+          "allowed-tools": "Read, Glob, Grep, Bash, Write, Edit, WebSearch, Agent"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "health-monitor": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "6cdeaf7f18796edf858bb1990428c50d4c9351fa199ddfb45c6c4f1ed116b6b4",
+            "size": 759
+          }
+        },
+        "metadata": {
+          "name": "health-monitor",
+          "description": "7개 제품의 가용성·응답시간·에러율 실시간 모니터링. IDEA 6-C CronPing SaaS의 내부 버전(Dogfooding). Agent 4-2.",
+          "argument-hint": "[서비스명 또는 URL]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "launch-package": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "6aa39ec22f05b959ed8db53173d0b7944ec83e569d816592adfe84270cf017de",
+            "size": 3793
+          }
+        },
+        "metadata": {
+          "name": "launch-package",
+          "description": "Gumroad ZIP 패키징 + 검증, Gumroad/ProductHunt/애그리게이터 전체 런칭 카피 일괄 생성. Agent 3-6.",
+          "argument-hint": "[--zip|--copy|--all] [--demo-url https://demo.shipkit.work] [--gumroad-url URL]",
+          "allowed-tools": "Read, Grep, Glob, Bash, Write"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "launch-preflight": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "dc89448b26fd879ad1cdf8970c3efdcbeb7c54ecd1d751fc66adafc0ffd88f06",
+            "size": 3669
+          }
+        },
+        "metadata": {
+          "name": "launch-preflight",
+          "description": "ShipKit 런칭 전 사전 점검. 환경변수 누락 확인, 빌드/타입체크 상태, Vercel 배포 검증, 데모 사이트 접속 테스트를 일괄 수행. Agent 4-5.",
+          "argument-hint": "[--check-env|--build|--deploy|--all]",
+          "allowed-tools": "Read, Grep, Glob, Bash, WebFetch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "launch-screenshots": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "253e9ef2d40944555841d728006137595ed68fe8d3eb342c67ac6d5faa46269e",
+            "size": 3687
+          }
+        },
+        "metadata": {
+          "name": "launch-screenshots",
+          "description": "배포된 ShipKit 데모 사이트의 스크린샷을 Playwright로 자동 촬영. 랜딩 페이지, 대시보드, AI 챗 화면 등. Agent 3-5.",
+          "argument-hint": "[base-url] [--output-dir ./screenshots] [--login email:password]",
+          "allowed-tools": "Read, Bash, Glob"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "onboarding": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "643ebeac2cf059596d4c6fbe90d61b652fea826afdcc6c6dfe75962bdc9e4be4",
+            "size": 755
+          }
+        },
+        "metadata": {
+          "name": "onboarding",
+          "description": "신규 사용자의 첫 경험을 가이드하여 활성화율 향상. 가입 후 환영 시퀀스, 셋업 가이드, 비활성 사용자 리마인더. Agent 5-2.",
+          "argument-hint": "[제품명]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "pm-agent": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "cd0bac10102794a2e4784811dc55a48041b089f84e42b806decdb39ab466ea26",
+            "size": 7528
+          },
+          "spec.md": {
+            "sha256": "bb5ddd32836845efa30defef2b3da293cee21ce6a6e62069da344df418cb32ec",
+            "size": 39583
+          }
+        },
+        "metadata": {
+          "name": "pm-agent",
+          "description": "아이디어 문서(idea.md 등)를 읽고 독립 프로젝트 단위로 분해하여 실행 가능한 스펙을 생성하는 PM 에이전트. SWIFT 프레임워크 검증, ICE 우선순위 스코어링, 에이전트 매핑, 포트폴리오 로드맵 생성. Agent 0-4.",
+          "argument-hint": "[idea.md 경로] 또는 [아이디어 텍스트] 또는 [URL --deep]",
+          "allowed-tools": "Read, Grep, Glob, Bash, WebSearch, WebFetch, Write"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "portfolio-manager": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "3d1fed076fc07296d04040e8f2ca30b321bacf97ad32baef9fa690d4bd34a326",
+            "size": 939
+          }
+        },
+        "metadata": {
+          "name": "portfolio-manager",
+          "description": "7개 제품 포트폴리오 전체를 조감하며 시간/자원 투입 추천. 주간 우선순위 리포트, 집중 제품 Top 3, 포기/집중 판단 지원. Agent 0-1.",
+          "argument-hint": "",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "product-launch": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "5570af7b675657c9548e79aed7d9beb20483f3991a7f104203dff091aac93e98",
+            "size": 1002
+          }
+        },
+        "metadata": {
+          "name": "product-launch",
+          "description": "ProductHunt, Hacker News, GeekNews 런칭을 체계화. 플랫폼별 런칭 카피, D-Day 체크리스트, 후속 분석 리포트 자동 생성. Agent 3-4.",
+          "argument-hint": "[제품명] --platform producthunt|hackernews|geeknews",
+          "allowed-tools": "Read, Grep, Glob, WebSearch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "prompt-manager": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "4d46c2fbcb80ee763c012126b8b511182ba87d757208d1394cc4d775199bb1d0",
+            "size": 5987
+          }
+        },
+        "metadata": {
+          "name": "prompt-manager",
+          "description": "프롬프트 CRUD, 버전 관리, 플레이그라운드, A/B 비교, SDK 배포 파이프라인 구축. Agent 1-11.",
+          "argument-hint": "[create|version|playground|compare|deploy] [프롬프트명] [--model model_name] [--variables 'name:string,product:string'] [--publish]",
+          "allowed-tools": "Read, Glob, Grep, Bash, Write, Edit, WebSearch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "quality-gate": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "ce8dfca1fee680ffee92bebe2dd698b06291cfaa8b17d608a46dd8d0c8c4597c",
+            "size": 1054
+          }
+        },
+        "metadata": {
+          "name": "quality-gate",
+          "description": "에이전트가 생성한 결과물(코드, 콘텐츠, 배포)의 품질을 최종 검증. lint/typecheck/test 통과, 팩트체크, 톤 일관성, 스모크 테스트. Agent 0-3.",
+          "argument-hint": "[에이전트 출력 결과]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "resend-domain": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "a1630e41df47b42d01b9f6bbd4ee07a1bb8b5236f9a45df3b9fe65b0d57ec5ec",
+            "size": 4409
+          }
+        },
+        "metadata": {
+          "name": "resend-domain",
+          "description": "Playwright로 Resend 대시보드에서 도메인 인증을 자동 수행. DNS 레코드 확인 후 Cloudflare에 자동 추가. Agent 4-10.",
+          "argument-hint": "[도메인명] [--registrar cloudflare]",
+          "allowed-tools": "Read, Bash, Glob, Grep, Write, Edit, WebFetch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "revenue-analytics": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "4cecd3724485998a0805e273770500c1191c18cecb6f6f4630f6ae2b0c11e7c6",
+            "size": 795
+          }
+        },
+        "metadata": {
+          "name": "revenue-analytics",
+          "description": "7개 제품의 매출·MRR·LTV를 통합 분석. Stripe + Gumroad 데이터 기반. 코호트 분석, 매출 예측, 주간 인사이트 리포트. Agent 5-3.",
+          "argument-hint": "[기간: 7d|30d|90d] [제품명]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "scaffolding": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "e99399baf5efc4d53ad354cc36f5f33d179a2883540e38747ad63964483359f4",
+            "size": 5930
+          }
+        },
+        "metadata": {
+          "name": "scaffolding",
+          "description": "새 프로젝트/마이크로 SaaS의 초기 구조를 자동 생성. Next.js 15 + Supabase + Stripe 기반. 출력물이 곧 보일러플레이트 상품(IDEA 1). Agent 1-1.",
+          "argument-hint": "[프로젝트 이름] --type saas|api|directory|mcp",
+          "disable-model-invocation": "true",
+          "allowed-tools": "Read, Grep, Glob, Bash, Write, Edit"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "sdk-builder": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "95d7a98932d0a9a9f5d15d8e4b09178e39931458ba4a36eab0d1cc14fd9593c6",
+            "size": 5447
+          }
+        },
+        "metadata": {
+          "name": "sdk-builder",
+          "description": "Python/JS SDK 코드 생성, 패키징, 테스트, 문서화를 자동화. OpenTelemetry 호환 트레이싱 SDK. Agent 1-6.",
+          "argument-hint": "python|javascript [--feature auto-patch|manual-trace|batch-export|prompt-fetch] [--provider openai|anthropic|vercel-ai|langchain] [--test] [--docs]",
+          "allowed-tools": "Read, Glob, Grep, Bash, Write, Edit, WebSearch, WebFetch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "seo-optimizer": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "88be68ebc791da2887bf6d7e8d641311192cdec373044f542f61bc18e0789786",
+            "size": 1578
+          }
+        },
+        "metadata": {
+          "name": "seo-optimizer",
+          "description": "콘텐츠와 웹페이지의 검색 엔진 최적화를 자동화. 키워드 리서치, 메타 태그, 구조화 데이터, 내부 링크 전략. IDEA 3 디렉토리 수익의 핵심. Agent 3-2.",
+          "argument-hint": "[URL 또는 콘텐츠 파일 경로]",
+          "allowed-tools": "Read, Grep, Glob, WebSearch, WebFetch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "social-media": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "7f09804eeadb5e535f7bd35f3b97e2ccd6a532b26c170362728d4f93bbc0c377",
+            "size": 5332
+          }
+        },
+        "metadata": {
+          "name": "social-media",
+          "description": "블로그 포스트/제품 업데이트를 X, LinkedIn, Hacker News, GeekNews에 최적화된 게시물로 변환. 플랫폼별 글자수·톤·포맷 자동 적용. Agent 3-3.",
+          "argument-hint": "[소스 콘텐츠 경로 또는 텍스트] --platforms twitter,linkedin,hackernews [--launch] [--gumroad-url URL] [--demo-url URL]",
+          "allowed-tools": "Read, Grep, Glob, Bash"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "stripe-webhook": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "31bc8655c4ba73b2b38e2ec9e48265d860439aef90cf3a925ed625c417fcfc10",
+            "size": 4050
+          }
+        },
+        "metadata": {
+          "name": "stripe-webhook",
+          "description": "Playwright로 Stripe 대시보드에서 Webhook endpoint URL을 자동 업데이트. 기존 webhook 수정 또는 새 endpoint 생성. Agent 4-9.",
+          "argument-hint": "[도메인명] [--endpoint-path /api/webhooks/stripe] [--events checkout.session.completed,customer.subscription.updated]",
+          "allowed-tools": "Read, Bash, Glob, Grep, Write, Edit, WebFetch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "supabase-auth": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "7ecb31737ad512c25a07501a18ef58250cfc739829e3f60c7216aa600a265361",
+            "size": 3228
+          }
+        },
+        "metadata": {
+          "name": "supabase-auth",
+          "description": "Playwright로 Supabase 대시보드에서 Auth URL Configuration을 자동 설정. Site URL, Redirect URLs 업데이트. Agent 4-8.",
+          "argument-hint": "[도메인명] [--redirect-urls URL1,URL2]",
+          "allowed-tools": "Read, Bash, Glob, Grep, Write, Edit, WebFetch"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "task-router": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "978a94557120b6bfd574448668ba32147feb44855efd49520c234e05e56fd2bb",
+            "size": 833
+          }
+        },
+        "metadata": {
+          "name": "task-router",
+          "description": "들어오는 작업/이벤트를 적절한 에이전트에 라우팅. 이벤트 분류, 디스패칭, 실행 큐 관리, 재시도 처리. Agent 0-2.",
+          "argument-hint": "[이벤트 JSON]",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "test-generator": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "aecb66e68808f58fdc2d430233d6bdd8864c237ae75fd096bfc73536fda31b38",
+            "size": 1102
+          }
+        },
+        "metadata": {
+          "name": "test-generator",
+          "description": "코드 변경에 대한 유닛/E2E 테스트를 자동 생성. Vitest + Playwright 기반. 엣지 케이스 탐지 및 커버리지 분석 포함. Agent 1-4.",
+          "argument-hint": "[파일 경로 또는 diff]",
+          "allowed-tools": "Read, Grep, Glob, Bash, Write, Edit"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "web-scraper": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "df5ca3f7276556f1a198c87badc6634f577d43c44928222271f29c27997db312",
+            "size": 1403
+          }
+        },
+        "metadata": {
+          "name": "web-scraper",
+          "description": "웹사이트에서 구조화된 데이터를 지능적으로 추출. Playwright + Claude Vision 기반. IDEA 2 AI 스크래핑 API와 IDEA 3 디렉토리의 핵심 엔진. Agent 2-1.",
+          "argument-hint": "[URL] --extract pricing|product|contact",
+          "user-invocable": "false"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "analytics": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "analytics.md": {
+            "sha256": "c27372e0387528d08dfd70b153eebb73ee893c131feb348c7af67fe329d8827e",
+            "size": 2091
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "art-review": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "art-review.md": {
+            "sha256": "c32e2263ef75255e370fa3f318316a000269be79d7b7068dd44e0da9b2e9d90a",
+            "size": 1920
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "aso": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "aso.md": {
+            "sha256": "c10c45588cf37dcacdcb80a6abe5722d720b2c5c780ee249921c4b38197cb7c3",
+            "size": 2180
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "engineering": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "engineering.md": {
+            "sha256": "4f36a8ff3f43777014e0031a530d0c2baeb4410ad8d923d92bff43a96cb61026",
+            "size": 2381
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "game-design": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "game-design.md": {
+            "sha256": "a0df560f4f1d7db5e7ee93a540c5d7b0cf008ee79088552b6b4219652586bae1",
+            "size": 2003
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "lead": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "lead.md": {
+            "sha256": "f5b60de5e3637f89a73ad97f9262e547bc94d3d8b05ec7a70d3b1e90009be0b2",
+            "size": 6009
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "liveops": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "liveops.md": {
+            "sha256": "bb3d1b988a976610384040a140bf895430cc829e8c2d54339125c5cf845edcd7",
+            "size": 2318
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "monetization": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "monetization.md": {
+            "sha256": "e18de2b2e684bd2d54a9d1fe0373d8c2be55fb93b7b485962e75a88ad7108ae5",
+            "size": 1995
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "qa": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "qa.md": {
+            "sha256": "c61cd4613fba0dacbf0f7dfa8973d491ea4d8c51bbd58d9d510f47c6fc8b4a45",
+            "size": 2531
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "retrospective": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "retrospective.md": {
+            "sha256": "632fadd2d0c0d8104c8d196c8bf87a6b2cce8129d491cdb294188c91ec907152",
+            "size": 2709
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "sprint": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "sprint.md": {
+            "sha256": "01231f3de2ce55a47d92fe262a36ae15ded744d37af6d5b7b57f672230be2ede",
+            "size": 2064
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "hub-manager": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "5bf77e4512017a2d3a00474fc70374da2243dfeb9779462a8322af3c423cfd87",
+            "size": 1688
+          }
+        },
+        "metadata": {
+          "name": "hub-manager",
+          "description": "Claude Hub 중앙 스킬/설정 관리. 레지스트리 조회, 에셋 동기화, 새 레포 부트스트랩, 상태 확인을 수행합니다.",
+          "argument-hint": "[list|status|sync|init|scan] [options]",
+          "allowed-tools": "Read, Bash, Glob, Grep",
+          "user-invocable": "true"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "vercel-deploy": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "39b98928740232edf94b9eec88a440cb8e442703e999317edb7c9ec73db7851e",
+            "size": 5524
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "android-keystore-setup": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "321e317a7ca9a698713c259a901c3565ea7b0d71fb9c184baf864e244a926371",
+            "size": 2353
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "android-build-test": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "f0d6824c032d12821cb890cdeead7a1b1ce108cef35bf6fcd0bfbde4b03e9f51",
+            "size": 2277
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "play-console-setup": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "cad99a7e0ff7795d0f2822e52fb8333ca929ac7d1cfef759a1ce460503da64dc",
+            "size": 3197
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "android-store-listing": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "fd219d03f2bdc689d39917606fd785e4c6ae36804932649140b0fc3028f654fb",
+            "size": 4143
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "android-screenshot": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "d72feada940ea97c0b5a805999b5cde624cce9e25efddf9fd021d70cdfb17570",
+            "size": 3584
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "android-release": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "e6e4179669ee191c4fd5dd6d3b171e61305bb1fb725a447516058acc5feae5bc",
+            "size": 4018
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "backtest-validator": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "2909c8bc2d5185e74184cf7bb46539f9004735acfeaed47b403203f8a924a080",
+            "size": 2302
+          },
+          "validation-checklist.md": {
+            "sha256": "5cdf55a721f5da0e82db1f5c5899d6c3ebcb4c490750f5f9e6dbc2e0ee8d8029",
+            "size": 2350
+          }
+        },
+        "metadata": {
+          "name": "backtest-validator",
+          "description": "백테스트 결과의 유효성을 검증합니다. 오버피팅, 생존자 편향, 미래정보 편향 등을 체크합니다. 공통 스킬.",
+          "argument-hint": "[backtest-results path]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "bias-checker": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "biases.md": {
+            "sha256": "b12f6b33e955df29d034d25cfd6d10e8c93b11a76d08b1a12f814793cd2fba70",
+            "size": 2721
+          },
+          "SKILL.md": {
+            "sha256": "d8de06204dfc27d2515d3bc213c00e6390c4d995e8f467ec3ee333a7c21acbb5",
+            "size": 3086
+          }
+        },
+        "metadata": {
+          "name": "bias-checker",
+          "description": "행동재무학 기반 투자 편향을 감지합니다. 손실 회피, 처분 효과, 과신, 확증 편향, 앵커링, 최근 편향 등 6가지 편향을 체크합니다. Layer 8. 개인 전용.",
+          "argument-hint": "[--portfolio path] [--decision JSON]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "data-ingest": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "b7c93d479eba625955618b4518d12f75747fb64ec1656442586ea4099d36189f",
+            "size": 2432
+          },
+          "sources.md": {
+            "sha256": "4f8a312d429f7296cb2da597cbda5a16a0d43160eddef48299d33958068e70c7",
+            "size": 1565
+          }
+        },
+        "metadata": {
+          "name": "data-ingest",
+          "description": "트레이딩 분석에 필요한 시장 데이터를 수집하고 전처리합니다. OHLCV, 재무제표, 기술적 지표 계산. Layer 1.",
+          "argument-hint": "[ticker(s)] [--days N] [--fundamentals]",
+          "user-invocable": "true",
+          "allowed-tools": "Bash, Read"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "execution-planner": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "execution-rules.md": {
+            "sha256": "296d30ee65071da8124707a21540faa0a32b1f8506f89505b81a464c7444ecdb",
+            "size": 1638
+          },
+          "SKILL.md": {
+            "sha256": "f13ab774b8d7e945b28052666569354bf2cfe9697908574c01643492538673c0",
+            "size": 2678
+          }
+        },
+        "metadata": {
+          "name": "execution-planner",
+          "description": "주문 실행 계획을 생성합니다. 리스크 검증 통과 후 구체적인 주문 타입, 가격, 수량, 타이밍을 결정합니다. Layer 7. 개인 전용.",
+          "argument-hint": "[symbol] [--action buy|sell] [--sizing-result JSON]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "performance-analyst": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "attribution-rules.md": {
+            "sha256": "67d4bf0be391b64210b6f3f07e6b69fce2cf4875b6221f5a2c844417fd6d1d54",
+            "size": 1300
+          },
+          "SKILL.md": {
+            "sha256": "c3c837a1d8224e4d0d1c8321d9c5667c57a9a5cc3818c5dd701b8c4802235214",
+            "size": 3111
+          }
+        },
+        "metadata": {
+          "name": "performance-analyst",
+          "description": "4단계 성과 어트리뷰션을 수행합니다. 포트폴리오/전략/거래/스킬 레벨의 성과를 Team Agent 4개로 병렬 분석합니다. Layer 8. 개인 전용.",
+          "argument-hint": "[--period N] [--level all|portfolio|strategy|trade|skill]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash, Agent"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "position-sizer": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "sizing-rules.md": {
+            "sha256": "36eb4862d991578409ea84357e6ce5cf75e9b04af3e58d89ddf5c5227aee7be0",
+            "size": 1434
+          },
+          "SKILL.md": {
+            "sha256": "0f2636ae14366f640954e64cdb39824833745ac13093bb89b570ce0e777fba00",
+            "size": 2240
+          }
+        },
+        "metadata": {
+          "name": "position-sizer",
+          "description": "Fractional Kelly와 ATR 기반으로 최적 포지션 크기를 계산합니다. 개인 포트폴리오 규모와 리스크 허용도에 맞춰 조정합니다. Layer 5. 개인 전용.",
+          "argument-hint": "[symbol] [--portfolio-value N] [--score N]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "regime-detect": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "regime-rules.md": {
+            "sha256": "5e5a7cfea5dd47b376b638c70b6e5774b2f11a9317577adad64946f43dc67c8c",
+            "size": 1733
+          },
+          "SKILL.md": {
+            "sha256": "b7ebe03c69ca67e64d1f3689836baf8e37561c14b7bc7e980a542c268710082d",
+            "size": 2986
+          }
+        },
+        "metadata": {
+          "name": "regime-detect",
+          "description": "현재 시장 레짐을 판별합니다. VIX, S&P 500 200MA, ADX, 수익률곡선을 종합하여 4가지 레짐 중 현재 상태와 확률을 산출합니다. Layer 2.",
+          "argument-hint": "[--history N]",
+          "user-invocable": "true",
+          "allowed-tools": "Bash, Read"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "risk-manager": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "risk-rules.md": {
+            "sha256": "52fff78f34b48125db5447db1c8e23a3d5256ee45eda0ca445287b1145a91930",
+            "size": 1871
+          },
+          "SKILL.md": {
+            "sha256": "cb87533e609fe1deab997b71be16d6296c52dcfbda5ae0b2297a96f53fb2b218",
+            "size": 2848
+          }
+        },
+        "metadata": {
+          "name": "risk-manager",
+          "description": "다중 레벨 리스크 검증을 수행합니다. Risk Auditor와 Bias Checker 에이전트가 병렬로 리스크를 점검합니다. Layer 6. 개인 전용.",
+          "argument-hint": "[--portfolio path] [--proposed-trade JSON]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash, Agent"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "scoring-engine": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "8e3b112a8a37ff52a681455555128f673eaf83ab0d4574c61643a96da9188110",
+            "size": 4169
+          }
+        },
+        "metadata": {
+          "name": "scoring-engine",
+          "description": "정량적 복합 스코어링을 실행합니다. F-Score, Z-Score, M-Score, G-Score를 포함한 3축(기본적/기술적/센티먼트) 분석으로 0-100 복합 점수를 산출합니다. Team Agent 3개 병렬 활용. Layer 4.",
+          "argument-hint": "[symbol] [--detail] [--screen market]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash, Agent"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "self-improver": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "improvement-rules.md": {
+            "sha256": "d0266ab3bbfec87c2cb9a7684f162b80de43548e2363ff5d681d3b7ba0c1d2ae",
+            "size": 2035
+          },
+          "SKILL.md": {
+            "sha256": "f1196e5537a42e4fc801d7649032de55b820416813b8d551346d1ba175ec482a",
+            "size": 3114
+          }
+        },
+        "metadata": {
+          "name": "self-improver",
+          "description": "성과 분석 결과를 기반으로 시스템 파라미터 개선을 제안합니다. Walk-Forward 결과와 스킬별 진단을 분석하여 구체적 조정안을 도출합니다. Layer 9. 개인 전용.",
+          "argument-hint": "[--performance-report path]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "signal-generate": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "766f3a167607c6692b37619c5133aea6ef74f71b165316508c7ef2630f58ab43",
+            "size": 3808
+          }
+        },
+        "metadata": {
+          "name": "signal-generate",
+          "description": "4가지 검증된 방법론(CAN SLIM, Magic Formula, Dual Momentum, Trend Following)을 동시 실행하여 합의 시그널을 생성합니다. Team Agent 4개 병렬. Layer 3.",
+          "argument-hint": "[symbol(s)]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash, Agent"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "trading-orchestrator": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "04e9491289274bbfd84f0c0aa09ace65137a9d11f6430c03f9db756647be4cad",
+            "size": 3798
+          }
+        },
+        "metadata": {
+          "name": "trading-orchestrator",
+          "description": "전체 9계층 트레이딩 파이프라인을 오케스트레이션합니다. 종목 분석, 포트폴리오 점검, 리밸런싱 판단을 체계적으로 수행합니다. 최대 13개 Team Agent를 활용합니다. 개인 전용.",
+          "argument-hint": "[full|quick|review] [symbol|portfolio]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash, Agent"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "agent-bootstrap": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "agent-bootstrap.md": {
+            "sha256": "91fc3b26fe40766bf3bd47e6f5f59d89e4532c4d94037df0850df047368b0292",
+            "size": 4346
+          }
+        },
+        "metadata": {
+          "name": "agent-bootstrap",
+          "description": "새 도메인 Agent 정의 파일을 생성하고 Hub에 등록합니다. Agent 역할 중복을 방지하고 CLAUDE.md 모델 배정 기준을 준수합니다.",
+          "argument-hint": "[create|update|audit] [agent-name] [--model opus|sonnet|haiku]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Write, Bash, Grep"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "sprint-closeout": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "sprint-closeout.md": {
+            "sha256": "e70d425c32846f7c300f35cec2b13e9850fcb7d6eed6ddfb492efcf7d97d7d86",
+            "size": 5240
+          }
+        },
+        "metadata": {
+          "name": "sprint-closeout",
+          "description": "Full Sprint Close-Out 강제 워크플로를 실행합니다. 메모리 저장 → 회고 작성 → git commit → git push 4단계를 순서대로 강제 수행합니다.",
+          "argument-hint": "[sprint-id] [--message 'commit message']",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Write, Bash, Grep"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "integration-tester": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "integration-tester.md": {
+            "sha256": "4f0534e2246b11e3294dea55c3bc0444a9b8960ac66ea4ce6802dbfbcdb07334",
+            "size": 6876
+          }
+        },
+        "metadata": {
+          "name": "integration-tester",
+          "description": "트레이딩 파이프라인 전체 흐름(데이터→스코어→레짐→시그널→포지션→리스크→실행)을 E2E 통합 테스트로 검증합니다. Paper Trading 모드 전용.",
+          "argument-hint": "[run|generate|report] [--scenario full|smoke|regression] [--symbol AAPL]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash, Grep"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "paper-trading-ops": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "paper-trading-ops.md": {
+            "sha256": "2a0f58d7b0799c1f713964666ae358dcf62b2a0e225d04a2e14bfb5e33aaa107",
+            "size": 8114
+          }
+        },
+        "metadata": {
+          "name": "paper-trading-ops",
+          "description": "Alpaca Paper Trading 환경에서 일일 포지션 점검, 주간 성과 집계, 월간 전략 리뷰를 실행합니다. Paper Trading API 전용.",
+          "argument-hint": "[daily|weekly|monthly] [--date YYYY-MM-DD]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Write, Bash, Grep"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "performance-optimizer": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "performance-optimizer.md": {
+            "sha256": "829e038df3d1887a51ac8a1039b9a0b1c8f6f329de8f2a715ec7a0942d0baf45",
+            "size": 2454
+          }
+        },
+        "metadata": {
+          "name": "performance-optimizer",
+          "description": "Next.js 앱 성능 최적화 전문가. N+1 쿼리 제거, Recharts 동적 임포트, 크론 병렬화, 미들웨어 최적화, React.cache() 적용. Agent 1-13.",
+          "argument-hint": "[최적화 대상 파일 또는 영역]",
+          "user-invocable": "true"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "python-project-setup": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "4e09e37d85a07f5d7a6a26d208f5264e46e7a008dd550456824029b53642a97f",
+            "size": 6640
+          }
+        },
+        "metadata": {
+          "name": "python-project-setup",
+          "description": "Python 트레이딩 시스템 프로젝트 초기화. pyproject.toml, 패키지 구조, .env.example, pytest 설정 자동 생성.",
+          "argument-hint": "[project-root] [--packages core,personal,commercial,cli]",
+          "user-invocable": "true",
+          "allowed-tools": "Bash, Read, Write"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "multi-ai-orchestration": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "7d71e49bfaac06f7d0f1b52187cbbb44f8f8b1168425a8d1f287bb892dffd65f",
+            "size": 12277
+          }
+        },
+        "metadata": {
+          "name": "multi-ai-orchestration",
+          "description": "Gemini CLI+Claude Code+Codex CLI를 최적 역할에 따라 조합하는 Multi-AI-Agent 오케스트레이션 가이드.",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Bash, Glob, Grep"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "observability-setup": {
+        "type": "skill",
+        "format": "directory",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "SKILL.md": {
+            "sha256": "501307aad90436bfb66f7d26e83090160ec53ac63ec39898906d5b96756b5276",
+            "size": 2873
+          }
+        },
+        "metadata": {},
+        "sharedTo": [],
+        "tags": []
+      },
+      "notebook": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "notebook.md": {
+            "sha256": "d8e8f4367b27e5614984588c0cba6c18005451deeabf9b0beb089e1369959822",
+            "size": 1900
+          }
+        },
+        "metadata": {
+          "name": "notebook",
+          "description": "Jupyter Notebook (.ipynb) 생성, 편집, 셀 관리, 실행을 수행하는 스킬"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "notebooklm": {
+        "type": "skill",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "notebooklm.md": {
+            "sha256": "df050ab71c84ffe7b4b6e32951b9cf157085a52f5651c84d960c184e1940bff5",
+            "size": 5734
+          }
+        },
+        "metadata": {
+          "name": "notebooklm",
+          "description": "NotebookLM Enterprise API + Playwright 웹 UI — 노트북 CRUD, 소스 관리, 오디오/비디오/인포그래픽 생성",
+          "argument-hint": "[create|list|get|source add|source list|audio|video|infographic|ask] [args]",
+          "user-invocable": "true",
+          "allowed-tools": "Read, Write, Bash, Grep, Agent, WebFetch"
+        },
+        "sharedTo": [],
+        "tags": []
+      }
+    },
+    "agents": {
+      "backend-architect": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "backend-architect.md": {
+            "sha256": "c1c2182d062228507390bcf9d9e96d18918c5bd97d0177f1ab0abd2ef85c1b98",
+            "size": 1236
+          }
+        },
+        "metadata": {
+          "name": "backend-architect",
+          "description": "Backend system architecture and API design specialist. Use PROACTIVELY for RESTful APIs, microservice boundaries, database schemas, scalability planning, and performance optimization.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "sonnet"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "frontend-developer": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "frontend-developer.md": {
+            "sha256": "7247ea7bda89e2c7e6703f1b983117b5d5e8ae055cd180987c9527d25ea5641f",
+            "size": 1318
+          }
+        },
+        "metadata": {
+          "name": "frontend-developer",
+          "description": "Frontend development specialist for React applications and responsive design. Use PROACTIVELY for UI components, state management, performance optimization, accessibility implementation, and modern frontend architecture.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "sonnet"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "fullstack-developer": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "fullstack-developer.md": {
+            "sha256": "6a226fccc47e93849e3168832692500df362897d202e7fb4a423c3341dc05f68",
+            "size": 32301
+          }
+        },
+        "metadata": {
+          "name": "fullstack-developer",
+          "description": "Full-stack development specialist covering frontend, backend, and database technologies. Use PROACTIVELY for end-to-end application development, API integration, database design, and complete feature implementation.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "opus"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "llms-maintainer": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "llms-maintainer.md": {
+            "sha256": "a7b6ef6247c7c8039e44ace6453eed60eceff2126cb58f2a0cb56c0f70893dc6",
+            "size": 3397
+          }
+        },
+        "metadata": {
+          "name": "llms-maintainer",
+          "description": "LLMs.txt roadmap file generator and maintainer. Use PROACTIVELY after build completion, content changes, or when implementing AEO (AI Engine Optimization). Scans site structure and updates AI crawler navigation.",
+          "tools": "Read, Write, Bash, Grep, Glob",
+          "model": "sonnet"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "technical-writer": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "technical-writer.md": {
+            "sha256": "bdc60cd781c64ae906650b8a6aaef4daa643234308a63b2fd88a7325eeeae982",
+            "size": 1315
+          }
+        },
+        "metadata": {
+          "name": "technical-writer",
+          "description": "Technical writing and content creation specialist. Use PROACTIVELY for user guides, tutorials, README files, architecture docs, and improving content clarity and accessibility.",
+          "tools": "Read, Write, Edit, Grep",
+          "model": "sonnet"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "ui-ux-designer": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "ui-ux-designer.md": {
+            "sha256": "efce401b643e71360458e63c17f76fafda3d6c44ad1e9ec6ee90cd051fedc835",
+            "size": 1226
+          }
+        },
+        "metadata": {
+          "name": "ui-ux-designer",
+          "description": "UI/UX design specialist for user-centered design and interface systems. Use PROACTIVELY for user research, wireframes, design systems, prototyping, accessibility standards, and user experience optimization.",
+          "tools": "Read, Write, Edit",
+          "model": "sonnet"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "hub-manager": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "hub-manager.md": {
+            "sha256": "ae3f4d6220d45d8ab84992698e8ad9f77145454adf3d7e90ed6c1a01128948b1",
+            "size": 1398
+          }
+        },
+        "metadata": {
+          "name": "hub-manager",
+          "description": "Claude Hub 중앙 관리 에이전트. 레지스트리 유지보수, 에셋 마이그레이션, 충돌 해결, 허브 상태 모니터링.",
+          "tools": "Read, Write, Edit, Bash, Glob, Grep",
+          "model": "opus"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "skill-auditor": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "skill-auditor.md": {
+            "sha256": "78a6022483555329646b949093eb47aadc0373f8c8e69247e04f101646de0058",
+            "size": 1468
+          }
+        },
+        "metadata": {
+          "name": "skill-auditor",
+          "description": "Claude Code 스킬/에이전트/커맨드 품질 감사. 프론트매터 검증, 중복 탐지, 구조 일관성 체크.",
+          "tools": "Read, Grep, Glob, Bash",
+          "model": "sonnet"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "regime-analyst-agent": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "regime-analyst-agent.md": {
+            "sha256": "0ec17901070b90696b135e74a58f2b396e8c4d827fb22d2c4866c48fee974adf",
+            "size": 3250
+          }
+        },
+        "metadata": {
+          "name": "regime-analyst-agent",
+          "description": "Market regime analysis specialist. Use for detecting Bull/Bear/Sideways/Crisis regimes via VIX, S&P500 200MA, ADX, and yield curve. Adjusts strategy weights per regime and monitors transition signals.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "sonnet"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "risk-auditor-agent": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "risk-auditor-agent.md": {
+            "sha256": "b81a1d46ef61ed68bd3cc546f8b1dc1a364a5a5f82b9af484dc87ebc01d3ecad",
+            "size": 4029
+          }
+        },
+        "metadata": {
+          "name": "risk-auditor-agent",
+          "description": "Portfolio risk auditing specialist. Use to validate position limits, enforce drawdown defense protocol (10/15/20% tiers), verify Fractional Kelly sizing, and coordinate with bias-checker for behavioral risk.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "sonnet"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "trading-orchestrator-lead": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "trading-orchestrator-lead.md": {
+            "sha256": "0acdbb7fcc6f970ae9942b3087a9ba3d7e76e28e6acacbfe3d9ed65daeb1a34e",
+            "size": 4812
+          }
+        },
+        "metadata": {
+          "name": "trading-orchestrator-lead",
+          "description": "전체 9계층 트레이딩 파이프라인 총괄 오케스트레이터. Sprint Gate 진행 판단, Agent 배정, 최종 승인권 보유. 복합 의사결정, Gate PASS/WARN/FAIL 판정, 낙폭 방어 트리거 전파가 필요한 모든 상황에 사용.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "claude-opus-4-5"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "data-engineer-agent": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "data-engineer-agent.md": {
+            "sha256": "a57c8f76668ad35ca3d46505b144601dea1baf6911bb14debfcf67d580c937e8",
+            "size": 4505
+          }
+        },
+        "metadata": {
+          "name": "data-engineer-agent",
+          "description": "시장 데이터 수집/전처리 전문 에이전트. OHLCV 가격 데이터, 재무제표, 기술적 지표(ATR/ADX/MA/RSI/MACD/OBV) 계산, SQLite 캐시 관리. data-ingest Skill 실행 및 데이터 품질 검증이 필요할 때 사용.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "claude-haiku-4-5"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "execution-ops-agent": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "execution-ops-agent.md": {
+            "sha256": "e8a990034a663effdfc3469db92625681a3e157a3c71ff976451ba8080c7d9e6",
+            "size": 4156
+          }
+        },
+        "metadata": {
+          "name": "execution-ops-agent",
+          "description": "Order execution operations specialist for Alpaca Paper and Live Trading. Use for creating, modifying, and canceling orders, handling partial fills, minimizing slippage, and logging all execution events.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "haiku"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "backtest-methodology-agent": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "backtest-methodology-agent.md": {
+            "sha256": "eb98c69db65fca75d4f9ae15fdb230986109ff1227c1607743527a23d9cacafd",
+            "size": 4779
+          }
+        },
+        "metadata": {
+          "name": "backtest-methodology-agent",
+          "description": "Backtesting methodology and validation specialist. Use to run Walk-Forward Analysis, verify PBO < 10% / WFE > 50% / Sharpe t-stat > 2, and apply the 12-item bias-prevention checklist before any strategy is promoted to live.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "sonnet"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "fundamental-analyst-agent": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "fundamental-analyst-agent.md": {
+            "sha256": "4743dcf65277bda162a551adebc4b72f782a9a6fec403b5f9ec2d2a6a8a30931",
+            "size": 5487
+          }
+        },
+        "metadata": {
+          "name": "fundamental-analyst-agent",
+          "description": "기본적 분석 전문 에이전트. Piotroski F-Score, Altman Z-Score, Beneish M-Score, Mohanram G-Score 계산 및 종합 기본적 점수(0-100) 산출. 안전성 필터(Z>1.81, M<-1.78) 판정 및 섹터 중립 정규화 수행. scoring-engine의 Fundamental Analyst 역할.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "claude-sonnet-4-5"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "performance-attribution-agent": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "performance-attribution-agent.md": {
+            "sha256": "a1d5022659859eec878d14446fe0110e2f7c76521449d8f2e6b59478d0b013e7",
+            "size": 5466
+          }
+        },
+        "metadata": {
+          "name": "performance-attribution-agent",
+          "description": "Performance attribution and analytics specialist. Use for 4-level P&L decomposition (portfolio / strategy / trade / skill), Signal IC validation (>= 0.03), Kelly efficiency monitoring (>= 70%), and generating monthly improvement reports.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "sonnet"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "technical-analyst-agent": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "technical-analyst-agent.md": {
+            "sha256": "361ea8a6f29ddf6acc2a294b13f505569fdf0ddf38d357495897357038618897",
+            "size": 6177
+          }
+        },
+        "metadata": {
+          "name": "technical-analyst-agent",
+          "description": "기술적 분석 전문 에이전트. 추세(200MA), 모멘텀(RSI/MACD/12-1M 수익률), 변동성(ATR), 거래량(OBV) 지표 기반 기술적 스코어 0-100 산출. 섹터 상대강도 포함. scoring-engine의 Technical Analyst 역할.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "claude-sonnet-4-5"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "sentiment-analyst-agent": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "trading",
+        "scope": "shared",
+        "files": {
+          "sentiment-analyst-agent.md": {
+            "sha256": "914428b00db8189489fe740730e8f3adf0e4f5f5751a33bef106f6bdd393f7e9",
+            "size": 6793
+          }
+        },
+        "metadata": {
+          "name": "sentiment-analyst-agent",
+          "description": "센티먼트 분석 전문 에이전트. 뉴스/소셜 감성 점수 집계, 내부자 거래 매수/매도 비율, 기관 보유 변화율, 애널리스트 추정치 개정 방향을 종합하여 센티먼트 스코어 0-100 산출. scoring-engine의 Sentiment Analyst 역할.",
+          "tools": "Read, Write, Edit, Bash",
+          "model": "claude-haiku-4-5"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "build-validator": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "build-validator.md": {
+            "sha256": "90314bc09c284077c1f7b71d974b7afc89eb363407cc585d2bb1ad6a0acc1e8b",
+            "size": 1106
+          }
+        },
+        "metadata": {
+          "model": "haiku",
+          "description": "typecheck + lint + test 파이프라인을 순차 실행하여 빌드 상태를 검증하는 에이전트"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "code-architect": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "code-architect.md": {
+            "sha256": "d8dd79b9f8c43f39ae18c296ab0058a4a983ddc3bfd6d152cb904529a0c3c85c",
+            "size": 1521
+          }
+        },
+        "metadata": {
+          "model": "sonnet",
+          "description": "DDD 레이어 의존성과 아키텍처 규칙 준수를 검증하는 에이전트"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "verify-app": {
+        "type": "agent",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "verify-app.md": {
+            "sha256": "8257625aba62933c5ab0abbd1ce56d51fd04f3b04da23e6e36ff9545c4e32c1c",
+            "size": 1067
+          }
+        },
+        "metadata": {
+          "model": "haiku",
+          "isolation": "worktree",
+          "description": "워크트리 격리 환경에서 E2E 검증을 수행하는 에이전트"
+        },
+        "sharedTo": [],
+        "tags": []
+      }
+    },
+    "commands": {
+      "vercel-deploy-optimize": {
+        "type": "command",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "vercel-deploy-optimize.md": {
+            "sha256": "78668a76a6e2ca3a03d27b915361bb57c61a19ffd01c7eba651c2768defbf86c",
+            "size": 8976
+          }
+        },
+        "metadata": {
+          "allowed-tools": "Read, Write, Edit, Bash",
+          "argument-hint": "[environment] [--analyze] [--preview]",
+          "description": "Optimize and deploy Next.js application to Vercel with performance monitoring",
+          "model": "sonnet"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "vercel-edge-function": {
+        "type": "command",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "vercel-edge-function.md": {
+            "sha256": "55e61edf996652f0aafaadd7e939fb75edea6e818f9e5c4c7c742918b283b0a8",
+            "size": 20895
+          }
+        },
+        "metadata": {
+          "allowed-tools": "Read, Write, Edit",
+          "argument-hint": "[function-name] [--auth] [--geo] [--transform] [--proxy]",
+          "description": "Generate optimized Vercel Edge Functions with geolocation, authentication, and data transformation",
+          "model": "sonnet"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "vercel-env-sync": {
+        "type": "command",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "vercel-env-sync.md": {
+            "sha256": "6e903fb9032c566652640b0334464c6d068303c2cc626e2d62ebf14973eec9fa",
+            "size": 19016
+          }
+        },
+        "metadata": {
+          "allowed-tools": "Read, Write, Edit, Bash",
+          "argument-hint": "[--pull] [--push] [--validate] [--backup]",
+          "description": "Synchronize environment variables between local development and Vercel deployments",
+          "model": "sonnet"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "deploy-android": {
+        "type": "command",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "deploy-android.md": {
+            "sha256": "56def4721f7cfbb190568bc26e4fd04b211126689bb37393f5641e92ae797815",
+            "size": 1389
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "deploy-ios": {
+        "type": "command",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "deploy-ios.md": {
+            "sha256": "13f07167a111e01d368a09502d8fa9e0621904b02afd2412c54839ac5bb605f6",
+            "size": 1333
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "deploy-legal": {
+        "type": "command",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "deploy-legal.md": {
+            "sha256": "f717d3dac5e557102a696537a865e1009a97e4198f778ee7e0b0eccec1a1111e",
+            "size": 1525
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "deploy-monitor": {
+        "type": "command",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "deploy-monitor.md": {
+            "sha256": "724eb1d4393c9205633319f333d5603ccf4e45322ed33ba4ae2217313de7bcc3",
+            "size": 1731
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "deploy-preflight": {
+        "type": "command",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "deploy-preflight.md": {
+            "sha256": "61e8db9652e8dd87b3cc59d46178371b5a9bb04aa07ac6e93ae14ebbc491e5ee",
+            "size": 889
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "deploy-setup": {
+        "type": "command",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "deploy-setup.md": {
+            "sha256": "7f237cc53f28e9589c5362a663d5747647b0d8ba8fef16c8a82839eb9794f01d",
+            "size": 1515
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "deploy-store": {
+        "type": "command",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "deploy-store.md": {
+            "sha256": "fcfce1ba900aec06133e5be0416ecc18bba6e506376082aac0875160fe8fb2d7",
+            "size": 1596
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "verify-ios-signing": {
+        "type": "command",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "verify-ios-signing.md": {
+            "sha256": "b7710f090efbcd58176fac1325f8fb519e31e45b8fcf99b7b9f2bf86676ec6ce",
+            "size": 2546
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "kanban": {
+        "type": "command",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "kanban.md": {
+            "sha256": "4ee231937889ff6a1a507c56a5905ebadbea10d19b4ee91d4ca0cb357c7c3c20",
+            "size": 3856
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "deploy-expert-review": {
+        "type": "command",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "deploy-expert-review.md": {
+            "sha256": "58ade30ccf2cf68a8dc3d84ca7ce3141017b06c89585df67fe72797f2c418ea9",
+            "size": 23257
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "ios-expert-review": {
+        "type": "command",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "ios-expert-review.md": {
+            "sha256": "0282cb81fe42c83b658a946f74cdd445c1bd819c73c93bcd7f51c458849af5cb",
+            "size": 31217
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "android-expert-review": {
+        "type": "command",
+        "format": "flat",
+        "origin": "unity-game",
+        "scope": "shared",
+        "files": {
+          "android-expert-review.md": {
+            "sha256": "c5d56f2fbd89aa91db7868038268373598aa78e45ca774f01549905ce4c207d5",
+            "size": 38148
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "verify": {
+        "type": "command",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "verify.md": {
+            "sha256": "483124cb0b49a0509eea3e28a9bcc91e6801df45b69ead8905a35b4568f24f67",
+            "size": 957
+          }
+        },
+        "metadata": {
+          "description": "변경된 프로젝트를 감지하여 typecheck/test/lint를 자동 실행합니다"
+        },
+        "sharedTo": [],
+        "tags": []
+      },
+      "simplify": {
+        "type": "command",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "simplify.md": {
+            "sha256": "b67eec3b1b12d2ba2b1a99d31fb37f4ac9c797622b5f1484c7c14b2930666a83",
+            "size": 1246
+          }
+        },
+        "metadata": {
+          "description": "최근 변경 코드의 중복, 과도설계, 미사용 코드를 분석하고 개선합니다"
+        },
+        "sharedTo": [],
+        "tags": []
+      }
+    },
+    "rules": {
+      "code-quality": {
+        "type": "rule",
+        "format": "flat",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "code-quality.md": {
+            "sha256": "fa3c22cb9e92b60930a48c265628b8a298b8cfef9c7104e54a8efd05be7e0ba7",
+            "size": 1064
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "retrospective": {
+        "type": "rule",
+        "format": "flat",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "retrospective.md": {
+            "sha256": "8cb70f5967b9d77dff5229e060035129482b521811fd192d39288e9c785c97b6",
+            "size": 1900
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "workflow": {
+        "type": "rule",
+        "format": "flat",
+        "origin": "claude-workspace",
+        "scope": "shared",
+        "files": {
+          "workflow.md": {
+            "sha256": "0012f25a4b41e43ea656f7a36816baceb4e183cd0d643a053a5807e2711e7076",
+            "size": 1083
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      },
+      "skill-first": {
+        "type": "rule",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "skill-first.md": {
+            "sha256": "011e2d77dc1a7971e31d9210c4eaf92bbc85ad11b2a5ee8443ed3333e6289165",
+            "size": 2904
+          }
+        },
+        "metadata": {},
+        "sharedTo": [
+          "trading"
+        ],
+        "tags": []
+      },
+      "ddd": {
+        "type": "rule",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "ddd.md": {
+            "sha256": "26bf075b2617c61a4006d668a5207fa01a57e39f75bfc202aa2c16c782ef88a2",
+            "size": 5653
+          }
+        },
+        "metadata": {},
+        "sharedTo": [],
+        "tags": []
+      },
+      "plan-first": {
+        "type": "rule",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "plan-first.md": {
+            "sha256": "c67498c38f502fc927f3eb9da4043870c548735504485a51c8668df4ed837bed",
+            "size": 989
+          }
+        },
+        "metadata": {},
+        "sharedTo": [],
+        "tags": []
+      },
+      "verification": {
+        "type": "rule",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "verification.md": {
+            "sha256": "7ad9b513bb27b810b17ef25f4c97bb4c65e3c914761632ca676d469476cd0530",
+            "size": 1168
+          }
+        },
+        "metadata": {},
+        "sharedTo": [],
+        "tags": []
+      }
+    },
+    "output-styles": {
+      "korean-concise": {
+        "type": "output-style",
+        "format": "flat",
+        "origin": "workspace",
+        "scope": "shared",
+        "files": {
+          "korean-concise.md": {
+            "sha256": "e10be0102c4b38c089bd0b1a7abde47a0d3305db8c316bbdb8234c83417896ef",
+            "size": 1077
+          }
+        },
+        "metadata": {
+          "description": "간결하고 핵심만 전달하는 한국어 응답 스타일"
+        },
+        "sharedTo": [
+          "test-repo",
+          "trading"
+        ],
+        "tags": []
+      }
+    }
+  }
+}
